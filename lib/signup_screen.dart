@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/gestures.dart';
+
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -7,42 +9,51 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: const SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 68),
+      backgroundColor: Colors.blueGrey,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Container(
+            width: 375,
+            height: 812,
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 68),
 
-            SignupHeader(),
+                const SignupHeader(),
 
-            SizedBox(height: 24),
+                const SizedBox(height: 24),
 
-            FieldLabel(text: "Name"),
-            SizedBox(height: 8),
-            AppTextField(hint: "Your name"),
+                const FieldLabel(text: "Name"),
+                const SizedBox(height: 8),
+                const AppTextField(hint: "Your name"),
 
-            SizedBox(height: 16),
+                const SizedBox(height: 16),
 
-            FieldLabel(text: "Email Address"),
-            SizedBox(height: 8),
-            AppTextField(hint: "name@email.com"),
+                const FieldLabel(text: "Email Address"),
+                const SizedBox(height: 8),
+                const AppTextField(hint: "name@email.com"),
 
-            SizedBox(height: 16),
+                const SizedBox(height: 16),
 
-            FieldLabel(text: "Password"),
-            SizedBox(height: 8),
-            PasswordField(hint: "Create a password"),
+                const FieldLabel(text: "Password"),
+                const SizedBox(height: 8),
+                const PasswordField(hint: "Create a password"),
 
-            SizedBox(height: 16),
+                const SizedBox(height: 16),
 
-            PasswordField(hint: "Confirm password"),
+                const PasswordField(hint: "Confirm password"),
 
-            SizedBox(height: 24),
+                const SizedBox(height: 24),
 
-            TermsAndConditions(),
-          ],
+                const TermsAndConditions(),
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -122,11 +133,9 @@ class AppTextField extends StatelessWidget {
         onChanged: (value) {
           print("Typed: $value");
         },
-
         decoration: AppInputDecoration().copyWith(
-          hintText: hint,
-          hintStyle: TextStyle(fontSize: 14,color: Color(0xFF8F9098))
-        ),
+            hintText: hint,
+            hintStyle: TextStyle(fontSize: 14, color: Color(0xFF8F9098))),
       ),
     );
   }
@@ -150,8 +159,8 @@ class PasswordField extends StatelessWidget {
           print("Typed: $value");
         },
         obscureText: true,
-        decoration:  AppInputDecoration().copyWith(
-          hintText:hint,
+        decoration: AppInputDecoration().copyWith(
+          hintText: hint,
           suffixIcon: GestureDetector(
             onTap: () {
               print("Visibility icon tapped");
@@ -170,7 +179,6 @@ class PasswordField extends StatelessWidget {
               ),
             ),
           ),
-
           suffixIconConstraints: BoxConstraints(
             minWidth: 40,
             minHeight: 40,
@@ -188,25 +196,25 @@ class PasswordField extends StatelessWidget {
 class AppInputDecoration extends InputDecoration {
   AppInputDecoration()
       : super(
-    hintStyle: TextStyle(
-      fontSize: 14,
-      color: Color(0xFF8F9098),
-    ),
-    contentPadding: EdgeInsets.symmetric(horizontal: 16),
-    enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(12)),
-      borderSide: BorderSide(
-        color: Color(0xFFC5C6CC),
-      ),
-    ),
-    focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(12)),
-      borderSide: BorderSide(
-        color: Color(0xFF2563EB),
-        width: 1.5,
-      ),
-    ),
-  );
+          hintStyle: TextStyle(
+            fontSize: 14,
+            color: Color(0xFF8F9098),
+          ),
+          contentPadding: EdgeInsets.symmetric(horizontal: 16),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+            borderSide: BorderSide(
+              color: Color(0xFFC5C6CC),
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+            borderSide: BorderSide(
+              color: Color(0xFF2563EB),
+              width: 1.5,
+            ),
+          ),
+        );
 }
 
 /* ===========================
@@ -239,65 +247,49 @@ class TermsAndConditions extends StatelessWidget {
         ),
         SizedBox(width: 12),
         Expanded(
-          child: Wrap(
-            children: [
-              const Text(
-                "I've read and agree with the ",
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12,
-                  color: Color(0xFF71727A),
-                ),
+          child: RichText(
+            softWrap: true,
+            text: TextSpan(
+              style: const TextStyle(
+                fontSize: 12,
+                color: Color(0xFF71727A),
               ),
-
-              GestureDetector(
-                onTap: () {
-                  print("Terms and Conditions tapped");
-                },
-                child: const Text(
-                  "Terms and Conditions",
-                  style: TextStyle(
-                    fontSize: 12,
+              children: [
+                const TextSpan(
+                  text: "I've read and agree with the ",
+                ),
+                TextSpan(
+                  text: "Terms and Conditions",
+                  style: const TextStyle(
                     color: Color(0xFF2563EB),
                     fontWeight: FontWeight.w600,
                   ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      print("Terms and Conditions tapped");
+                    },
                 ),
-              ),
-
-              const Text(
-                " and the ",
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF71727A),
+                const TextSpan(
+                  text: " and the ",
                 ),
-              ),
-
-              GestureDetector(
-                onTap: () {
-                  print("Privacy Policy tapped");
-                },
-                child: const Text(
-                  "Privacy Policy",
-                  style: TextStyle(
-                    fontSize: 12,
+                TextSpan(
+                  text: "Privacy Policy",
+                  style: const TextStyle(
                     color: Color(0xFF2563EB),
                     fontWeight: FontWeight.w600,
                   ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      print("Privacy Policy tapped");
+                    },
                 ),
-              ),
-
-              const Text(
-                ".",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Color(0xFF71727A),
+                const TextSpan(
+                  text: ".",
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
-
       ],
     );
   }
