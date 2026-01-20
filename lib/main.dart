@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
-import 'login_screen.dart';
+import 'screens/login_screen.dart';
 
 void main() {
-  runApp(const LoginUIApp());
+  runApp(const MyApp());
 }
 
-class LoginUIApp extends StatelessWidget {
-  const LoginUIApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Inter',
       ),
-      home: const LoginScreen(),
+      debugShowCheckedModeBanner: false,
+      home: LoginScreen(),
     );
-
   }
 }
