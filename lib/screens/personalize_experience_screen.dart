@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../constants/app_colors.dart';
-import '../constants/app_sizes.dart';
-import '../widgets/primary_button.dart';
+import 'package:task4/constants/app_colors.dart';
+import 'package:task4/constants/app_sizes.dart';
+import 'package:task4/widgets/primary_button.dart';
 
 class PersonaliseExperienceScreen extends StatefulWidget {
   const PersonaliseExperienceScreen({super.key});
@@ -56,7 +56,7 @@ class _PersonaliseExperienceScreenState
             children: [
               const SizedBox(height: 68),
 
-              // 🔹 Progress bar
+
               ClipRRect(
                 borderRadius: BorderRadius.circular(4),
                 child: LayoutBuilder(
@@ -89,7 +89,7 @@ class _PersonaliseExperienceScreenState
 
               const SizedBox(height: 32),
 
-              // 🔹 Title
+
               const Text(
                 "Personalise your\nexperience",
                 style: TextStyle(
@@ -110,7 +110,7 @@ class _PersonaliseExperienceScreenState
 
               const SizedBox(height: 40),
 
-              // 🔹 Interests list
+
               Expanded(
                 child: ListView.separated(
                   itemCount: interests.length,
@@ -164,7 +164,7 @@ class _PersonaliseExperienceScreenState
               ),
 
 
-              // 🔹 Next button
+
               PrimaryButton(
                 text: "Next",
                 onTap: () {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:task4/widgets/primary_button.dart';
 
-import '../constants/app_colors.dart';
-import '../constants/app_sizes.dart';
-import '../widgets/auth_header.dart';
-import '../widgets/app_text_field.dart';
-import '../widgets/password_field.dart';
-import '../widgets/social_icon.dart';
+import 'package:task4/constants/app_colors.dart';
+import 'package:task4/constants/app_sizes.dart';
+import 'package:task4/widgets/auth_header.dart';
+import 'package:task4/widgets/app_text_field.dart';
+import 'package:task4/widgets/password_field.dart';
+import 'package:task4/widgets/social_icon.dart';
 import 'signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -19,7 +19,7 @@ class LoginScreen extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-            width: AppSizes.screenWidth,
+            width: double.infinity,
             height: AppSizes.screenHeight,
             color: AppColors.white,
             child: Column(
@@ -30,7 +30,7 @@ class LoginScreen extends StatelessWidget {
                   child: Image.asset(
                     'assets/images/coffee.png',
                     height: 312,
-                    width: 375,
+                    width: double.infinity,
                     fit: BoxFit.cover,
                   ),
                 ),

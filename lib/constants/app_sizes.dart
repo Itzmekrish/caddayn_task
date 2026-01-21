@@ -1,5 +1,5 @@
 class AppSizes {
-  static const screenWidth = 375.0;
+  static const screenWidth = double.infinity;
   static const screenHeight = 812.0;
 
   static const horizontalPadding = 24.0;

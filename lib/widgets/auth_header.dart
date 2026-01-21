@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants/app_text_styles.dart';
+import 'package:task4/constants/app_text_styles.dart';
 
 class AuthHeader extends StatelessWidget {
   final String title;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../constants/app_colors.dart';
-import '../constants/app_sizes.dart';
-import '../widgets/primary_button.dart';
-import '../screens/personalize_experience_screen.dart';
+import 'package:task4/constants/app_colors.dart';
+import 'package:task4/constants/app_sizes.dart';
+import 'package:task4/widgets/primary_button.dart';
+import 'package:task4/screens/personalize_experience_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -57,7 +57,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // 🔹 Image slider
+
               SizedBox(
                 height: 506,
                 child: PageView.builder(
@@ -82,7 +82,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
               const SizedBox(height: 40),
 
-              // 🔹 Dots
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: Row(
@@ -108,7 +108,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
               const SizedBox(height: 22),
 
-              // 🔹 Title
+
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 32),
                 child: Text(
@@ -122,7 +122,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
               const SizedBox(height: 22),
 
-              // 🔹 Description
+
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 32),
                 child: Text(
@@ -137,7 +137,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
               SizedBox(height: 42),
 
-              // 🔹 Next button
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: PrimaryButton(
