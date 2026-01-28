@@ -15,6 +15,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       backgroundColor: AppColors.background,
       body: Center(
         child: Container(
@@ -27,6 +28,7 @@ class SignupScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children:  [
+              
               SizedBox(height: 68),
               AuthHeader(
                 title: "Sign up",

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task4/constants/app_colors.dart';
 import 'package:task4/constants/app_sizes.dart';
+import 'package:task4/screens/chat_list_screen.dart';
 import 'package:task4/widgets/primary_button.dart';
 
 class PersonaliseExperienceScreen extends StatefulWidget {
@@ -27,7 +28,6 @@ class _PersonaliseExperienceScreenState
     return selectedInterests.length / interests.length;
   }
 
-
   final Set<String> selectedInterests = {};
 
   void toggleSelection(String item) {
@@ -43,22 +43,20 @@ class _PersonaliseExperienceScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       backgroundColor: Colors.grey.shade300,
       body: Center(
         child: Container(
           width: AppSizes.screenWidth,
           height: AppSizes.screenHeight,
           color: Colors.white,
-          padding:
-          const EdgeInsets.symmetric(horizontal: AppSizes.horizontalPadding),
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppSizes.horizontalPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 68),
-
-
               ClipRRect(
-                borderRadius: BorderRadius.circular(4),
                 child: LayoutBuilder(
                   builder: (context, constraints) {
                     return Container(
@@ -83,13 +81,8 @@ class _PersonaliseExperienceScreenState
                     );
                   },
                 ),
-
-
               ),
-
               const SizedBox(height: 32),
-
-
               const Text(
                 "Personalise your\nexperience",
                 style: TextStyle(
@@ -97,9 +90,7 @@ class _PersonaliseExperienceScreenState
                   fontWeight: FontWeight.w800,
                 ),
               ),
-
               const SizedBox(height: 16),
-
               const Text(
                 "Choose your interests.",
                 style: TextStyle(
@@ -107,10 +98,7 @@ class _PersonaliseExperienceScreenState
                   color: Color(0xFF71727A),
                 ),
               ),
-
               const SizedBox(height: 40),
-
-
               Expanded(
                 child: ListView.separated(
                   itemCount: interests.length,
@@ -162,16 +150,12 @@ class _PersonaliseExperienceScreenState
                   },
                 ),
               ),
-
-
-
               PrimaryButton(
                 text: "Next",
                 onTap: () {
-                  print("Next Clicked");
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ChatListScreen(),),);
                 },
               ),
-
               const SizedBox(height: 20),
             ],
           ),

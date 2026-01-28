@@ -25,6 +25,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+
                 // 🔹 Image WITHOUT padding
                 ClipRRect(
                   child: Image.asset(
